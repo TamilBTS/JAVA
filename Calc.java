@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class Calc extends Frame implements ActionListener {
     TextField FN;
     TextField SN,Res;
-    Button a1,a2,a3,a4,a5;
+    Button a1,a2,a3,a4,a5,a6,a7;
 
     Calc(){
         Label FirstNum=new Label("First Number");
@@ -37,8 +37,16 @@ public class Calc extends Frame implements ActionListener {
         a4.setBounds(120,220,80,20);
         a4.addActionListener(this);
         add(a4);
+        a6=new Button("Sqrt");
+        a6.addActionListener(this);
+        a6.setBounds(20,260,80,20);
+        add(a6);
+        a7=new Button("Power");
+        a7.setBounds(120,260,80,20);
+        a7.addActionListener(this);
+        add(a7);
         a5=new Button("clear");
-        a5.setBounds(60,260,100,20);
+        a5.setBounds(60,300,100,20);
         a5.addActionListener(this);
         add(a5);
         Label res=new Label("RESULT");
@@ -76,6 +84,17 @@ public class Calc extends Frame implements ActionListener {
             int x=Integer.parseInt(FN.getText());
             int y=Integer.parseInt(SN.getText());
             int sum=x/y;
+            Res.setText(String.valueOf(sum));
+        }
+        else if(e.getSource()==a6){
+            int x=Integer.parseInt(FN.getText());
+            double sum=  Math.sqrt(x);
+            Res.setText(String.valueOf(sum));
+        }
+        else if(e.getSource()==a7){
+            int x=Integer.parseInt(FN.getText());
+            int y=Integer.parseInt(SN.getText());
+            double sum=Math.pow(x,y);
             Res.setText(String.valueOf(sum));
         }
         else{
