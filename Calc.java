@@ -76,7 +76,7 @@ public class Calc extends Frame implements ActionListener {
             int x=Integer.parseInt(FN.getText());
             int y=Integer.parseInt(SN.getText());
             int sum=x/y;
-            Res.setText(""+sum);
+            Res.setText(String.valueOf(sum));
         }
         else{
             FN.setText("");
