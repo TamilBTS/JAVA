@@ -1,18 +1,22 @@
-import java.awt.*;
+
+import java.applet.Applet;
+import java.awt.Button;
+import java.awt.Label;
+import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class Calc extends Frame implements ActionListener {
-    TextField FN;
-    TextField SN,Res;
-    Button a1,a2,a3,a4,a5,a6,a7;
-
-    Calc(){
-        Label FirstNum=new Label("First Number");
-        FirstNum.setBounds(20,60,100,20);
-        add(FirstNum);
-         FN=new TextField();
+public class Calc extends Applet implements ActionListener{
+    
+        TextField FN, SN, Res;
+        Button a1, a2, a3, a4, a5, a6, a7;
+    public void init(){
+    
+        Label First=new Label("First Number");
+        First.setBounds(20,60,100,20);
+        add(First);
+        FN=new TextField();
         FN.setBounds(120,60,100,20);
         add(FN);
         Label SecondNum=new Label("Second Number");
@@ -59,9 +63,9 @@ public class Calc extends Frame implements ActionListener {
         setSize(500,500);
         setLayout(null);
         setVisible(true);
-
     }
-    public void actionPerformed(ActionEvent e) {
+   
+   public void actionPerformed(ActionEvent e) {
         if(e.getSource()==a1){
             int x=Integer.parseInt(FN.getText());
             int y=Integer.parseInt(SN.getText());
@@ -85,6 +89,7 @@ public class Calc extends Frame implements ActionListener {
             int y=Integer.parseInt(SN.getText());
             int sum=x/y;
             Res.setText(String.valueOf(sum));
+            
         }
         else if(e.getSource()==a6){
             int x=Integer.parseInt(FN.getText());
@@ -102,13 +107,7 @@ public class Calc extends Frame implements ActionListener {
             SN.setText("");
             Res.setText("");
         }
+        repaint();
+        showStatus("hello...:/");
     }
-
-    public static void main(String[] args) {
-       Calc c=new Calc();
-    }
-
-
-
 }
-
